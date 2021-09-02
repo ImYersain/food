@@ -94,9 +94,11 @@
 /***/ (function(module, exports) {
 
 window.addEventListener('DOMContentLoaded', () => {
+  //tabs
   const tabs = document.querySelectorAll('.tabheader__item');
   const tabsContent = document.querySelectorAll('.tabcontent');
   const tabsParent = document.querySelector('.tabcontainer');
+  const tabsDescr = document.querySelectorAll('.tabcontent__descr');
 
   function hidenTabContent() {
     tabsContent.forEach(item => {
@@ -129,7 +131,14 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  });
+  }); //timer
+
+  const deadLine = '2021-09-02';
+
+  function getTimeRemaining(endtime) {
+    const t = Date.parse(endtime) - Date.parse(new Date()),
+          days = Math.floor(t / (1000 * 60 * 60 * 24));
+  }
 });
 
 /***/ })
