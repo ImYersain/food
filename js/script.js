@@ -131,41 +131,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  }); //timer
-  // const deadLine = '2021-10-08';
-  // function getTimeRemaining(endtime) {
-  //     const   t = Date.parse(endtime) - Date.parse(new Date()),
-  //             days = Math.floor( (t/(1000*60*60*24)) ),
-  //             seconds = Math.floor( (t/1000) % 60 ),
-  //             minutes = Math.floor( (t/1000/60) % 60 ),
-  //             hours = Math.floor( (t/(1000*60*60) % 24) );
-  //     return {
-  //         'days': days,
-  //         'total': t,
-  //         'minutes': minutes,
-  //         'hours': hours,
-  //         'seconds': seconds
-  //     };
-  // }
-  // function setClock(selector, endtime) {
-  //     const   timer = document.querySelector(selector),
-  //             days = timer.querySelector("#days"),
-  //             hours = timer.querySelector('#hours'),
-  //             minutes = timer.querySelector('#minutes'),
-  //             seconds = timer.querySelector('#seconds'),
-  //             timeInterval = setInterval(updateClock, 1000);
-  //     function updateClock() {
-  //         const t = getTimeRemaining(endtime);
-  //         days.InnerHTML = t.days;
-  //         hours.InnerHTML = t.hours;
-  //         minutes.InnerHTML = t.minutes;
-  //         seconds.InnerHTML = t.seconds;
-  //         if (t.total <= 0){
-  //             clearInterval(timeInterval);
-  //         }
-  //     }
-  // }
-  // setClock('.timer', deadLine);
+  });
+  
+  
+  
+  
+  //timer
+  
 
   const deadline = '2021-09-21';
 
