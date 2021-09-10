@@ -94,7 +94,13 @@
 /***/ (function(module, exports) {
 
 window.addEventListener('DOMContentLoaded', () => {
+
+
   //tabs
+
+
+
+
   const tabs = document.querySelectorAll('.tabheader__item');
   const tabsContent = document.querySelectorAll('.tabcontent');
   const tabsParent = document.querySelector('.tabcontainer');
@@ -131,8 +137,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  }); //timer
+  });
+  
+  
+  
+  //timer
 
+
+
+  
   const deadline = '2021-09-21';
 
   function getTimeRemaining(endtime) {
@@ -180,19 +193,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  setClock('.timer', deadline); //modal
+  setClock('.timer', deadline);
+  
+  
+  
+  
+  
+  
+  //modal
 
   const modBtn = document.querySelectorAll("[data-modal]"),
         modal = document.querySelector('.modal'),
         modalClose = document.querySelector("[data-close]");
-  modBtn.forEach(btn => {
-    btn.addEventListener('click', () => {
+
+    function openModal(){
       // modal.style.display = "block";
       // modal.classList.toggle('show');
       modal.classList.add('show');
       modal.classList.remove('hide');
       document.body.style.overflow = "hidden";
-    });
+      clearInterval(modalTimerId);
+  }
+
+  modBtn.forEach(btn => {   //стрелочные, и event.target
+    btn.addEventListener('click', openModal);
   });
 
   function closeModal() {
@@ -212,6 +236,23 @@ window.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
+
+  const modalTimerId = setTimeout(openModal, 3000);
+
+
+  function showModalScroll(){
+    if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight -1) {
+      openModal();
+      window.removeEventListener('scroll',showModalScroll);   //removeEventListener
+    }
+  }
+
+  window.addEventListener('scroll',showModalScroll);
+
+
+
+
+
 });
 
 /***/ })
