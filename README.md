@@ -4,3 +4,4 @@ just for practice (project  in progress)
 -tabs
 -modal
 -timer
+-classes and constructors
