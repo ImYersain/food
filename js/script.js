@@ -176,8 +176,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     render(){
-      const element = document.createElement('div');  //дополнить проверку на класс меню айтем
-      if(this.classes.length === 0) {
+      const element = document.createElement('div');  //дополнить проверку на класс меню айтем  -- done
+      if(this.classes.length === 0 || this.classes !== "menu__item") {
         element.classList.add("menu__item");
       } else {
         this.classes.forEach(className => element.classList.add(className));
