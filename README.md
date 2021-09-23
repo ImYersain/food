@@ -5,3 +5,4 @@ just for practice (project  in progress)
 -modal
 -timer
 -classes and constructors
+-operator ...rest 
