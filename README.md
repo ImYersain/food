@@ -6,3 +6,4 @@ just for practice (project  in progress)
 -timer
 -classes and constructors
 -operator ...rest 
+-form, post from client to server  (requests (XMLHttpRequests), localhost(openserver), JSON)
