@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   
-  const deadline = '2021-09-21';
+  const deadline = '2021-10-21';
 
   function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -108,17 +108,10 @@ window.addEventListener('DOMContentLoaded', () => {
   //modal
 
   const modBtn = document.querySelectorAll("[data-modal]"),
-        modal = document.querySelector('.modal'),
-        modalClose = document.querySelector("[data-close]");
+        modal = document.querySelector('.modal');
+        
 
-    function openModal(){
-      // modal.style.display = "block";
-      // modal.classList.toggle('show');
-      modal.classList.add('show');
-      modal.classList.remove('hide');
-      document.body.style.overflow = "hidden";
-      clearInterval(modalTimerId);
-  }
+    
 
   modBtn.forEach(btn => {   //стрелочные, и event.target
     btn.addEventListener('click', openModal);
@@ -130,9 +123,17 @@ window.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = "";
   }
 
-  modalClose.addEventListener('click', closeModal);
+  function openModal(){
+    // modal.style.display = "block";
+    // modal.classList.toggle('show');
+    modal.classList.add('show');
+    modal.classList.remove('hide');
+    document.body.style.overflow = "hidden";
+    clearInterval(modalTimerId);
+}
+
   modal.addEventListener('click', e => {
-    if (e.target === modal) {
+    if (e.target === modal || e.target.getAttribute('data-close') == "") {
       closeModal();
     }
   });
@@ -142,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const modalTimerId = setTimeout(openModal, 3000);
+  const modalTimerId = setTimeout(openModal, 50000);
 
 
   function showModalScroll(){
@@ -226,6 +227,92 @@ new MenuCard(
     ".menu .container",
     "menu__item"
 ).render();
+
+
+
+
+//forms
+
+const forms = document.querySelectorAll('form');
+
+const message = {
+    loading: "img/form/spinner.svg",
+    success: "Спасибо, мы вам перезвоним",
+    failure: "Что-то пошло не так"
+};
+
+forms.forEach((item) => {
+  postData(item);
+});
+
+function postData(form){
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const statusMessage = document.createElement('img');
+              statusMessage.src = message.loading;
+              statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+              `;
+              form.insertAdjacentElement('afterend', statusMessage);
+
+        const request = new XMLHttpRequest();
+        request.open('POST', 'server.php');
+        request.setRequestHeader('Content-type','application/json');
+        const formData = new FormData(form);
+        
+        const object = {};
+        formData.forEach(function(value, key){
+            object[key] = value;
+        });
+
+        request.send(JSON.stringify(object));
+
+        request.addEventListener('load',() =>{
+            if(request.status === 200) {
+              console.log(request.response);
+              showThanksModal(message.success);
+              statusMessage.remove();
+              form.reset();
+            } else {
+              showThanksModal(message.failure);
+            }
+        });
+    });    
+}
+
+
+
+function showThanksModal(message){
+  const modalDialog = document.querySelector(".modal__dialog");
+        modalDialog.classList.add("hide");
+        openModal();
+
+  const newDialog = document.createElement("div");
+        newDialog.classList.add("modal__dialog");
+        newDialog.innerHTML= `
+        <div class="modal__content">
+                    <div data-close class="modal__close">&times;</div>
+                    <div class="modal__title">${message}</div>
+                    
+            </div>
+        `;
+        document.querySelector(".modal").append(newDialog);
+
+        setTimeout(()=>{
+            closeModal();  
+            newDialog.remove();
+            modalDialog.classList.add("show");
+            modalDialog.classList.remove("hide");
+            
+        }, 4000);
+  
+
+}
+
+
+
 
 
 
