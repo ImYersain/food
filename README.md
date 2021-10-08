@@ -9,3 +9,4 @@ just for practice (project  in progress)
 -operator ...rest 
 -form, post from client to server  (requests (XMLHttpRequests), localhost(openserver), JSON)
 -promise
+...
