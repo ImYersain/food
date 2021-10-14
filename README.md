@@ -8,5 +8,6 @@ just for practice (project  in progress)
 -classes and constructors
 -operator ...rest 
 -form, post from client to server  (requests (XMLHttpRequests), localhost(openserver), JSON)
--promise
-...
+-Promises
+-FETCH
+-Npm JSON-server
