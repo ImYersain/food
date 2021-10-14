@@ -1,5 +1,6 @@
 # food project (JavaScript native)
 
+
 just for practice (project  in progress)
 -tabs
 -modal
@@ -7,3 +8,5 @@ just for practice (project  in progress)
 -classes and constructors
 -operator ...rest 
 -form, post from client to server  (requests (XMLHttpRequests), localhost(openserver), JSON)
+-promise
+...

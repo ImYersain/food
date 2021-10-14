@@ -1,0 +1,22 @@
+{
+  "name": "food_dist",
+  "version": "1.0.0",
+  "description": "just for practice (project  in progress)\r -tabs\r -modal\r -timer\r -classes and constructors\r -operator ...rest \r -form, post from client to server  (requests (XMLHttpRequests), localhost(openserver), JSON)\r -promise\r ...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImYersain/food.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImYersain/food/issues"
+  },
+  "homepage": "https://github.com/ImYersain/food#readme",
+  "devDependencies": {
+    "json-server": "^0.17.0"
+  }
+}
