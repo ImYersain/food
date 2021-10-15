@@ -11,3 +11,5 @@ just for practice (project  in progress)
 -Promises
 -FETCH
 -Npm JSON-server
+-async,await
+-db.js (json-server)
