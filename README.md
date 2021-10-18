@@ -13,4 +13,4 @@ just for practice (project  in progress)
 -Npm JSON-server
 -async,await
 -db.js (json-server)
--fetch(GET)
+-fetch(GET,POST)
