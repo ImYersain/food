@@ -213,14 +213,17 @@ window.addEventListener('DOMContentLoaded', () => {
   //     });
   //   });
 
-  axios.get('http://localhost:3000/menu')
+
+  axios.get('http://localhost:3000/menu')   // Гет запрос с помощью либы axios 
     .then(data => {
-      console.log(data);
       data.data.forEach(({img,altimg,title,descr,price}) => {
         new MenuCard(img,altimg,title,descr,price,'.menu .container').render();
 
       });
     });
+
+
+
 
 
 
@@ -316,9 +319,62 @@ function showThanksModal(message){
 
 }
 
-// fetch('http://localhost:3000/menu')
-//   .then(data => data.json())
-//   .then(res => console.log(res));
+
+
+
+
+
+//slider
+
+
+const slides = document.querySelectorAll(".offer__slide"),
+      sliderButtonPrev = document.querySelector(".offer__slider-prev"),
+      sliderButtonNext = document.querySelector(".offer__slider-next");
+let   slideIndex = 1,
+      total = document.querySelector('#total'),
+      current = document.querySelector('#current');
+
+showSlides(slideIndex);
+
+if(slides.length < 10){
+  total.textContent = `0${slides.length}`;
+} else {
+  total.textContent = slides.length;
+}
+
+function showSlides(n){
+  if(slideIndex > slides.length){
+    slideIndex = 1;
+  } 
+  if(slideIndex < 1){
+    slideIndex = slides.length;
+  }
+
+  if(slides.length < 10){
+    current.textContent = `0${slideIndex}`;
+  } else {
+    current.textContent = slideIndex;
+  }
+
+  slides.forEach(item => item.style.display = 'none'); 
+  slides[slideIndex - 1].style.display = "block";
+}
+
+
+function IndexCounter(n){
+  showSlides(slideIndex +=n);
+}
+
+sliderButtonPrev.addEventListener('click',(item)=>{
+  IndexCounter(-1);
+});
+sliderButtonNext.addEventListener('click',(item)=>{
+  IndexCounter(1);
+});
+
+
+
+
 
 
 
