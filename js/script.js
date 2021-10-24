@@ -329,7 +329,8 @@ function showThanksModal(message){
 
 const slides = document.querySelectorAll(".offer__slide"),
       sliderButtonPrev = document.querySelector(".offer__slider-prev"),
-      sliderButtonNext = document.querySelector(".offer__slider-next");
+      sliderButtonNext = document.querySelector(".offer__slider-next"),
+      slider = document.querySelector(".offer__slider");
 let   slideIndex = 1,
       total = document.querySelector('#total'),
       current = document.querySelector('#current');
@@ -365,12 +366,84 @@ function IndexCounter(n){
   showSlides(slideIndex +=n);
 }
 
+
+slider.style.position = "relative";
+const dots = document.createElement('ol'),
+      indicators = [];
+
+
+dots.classList.add("carousel-indicators");
+slider.append(dots);
+for(let i = 0; i < slides.length; i++){
+  const dot = document.createElement("li");
+  dot.setAttribute('data-slide-to', i + 1);
+  dot.classList.add("dot");
+  if(i == 0){
+    dot.style.opacity = "1";
+  }
+  dots.append(dot);
+  indicators.push(dot);
+}
+
+
 sliderButtonPrev.addEventListener('click',(item)=>{
   IndexCounter(-1);
+  indicators.forEach(dot => dot.style.opacity = ".5");
+  indicators[slideIndex - 1].style.opacity = "1";
 });
 sliderButtonNext.addEventListener('click',(item)=>{
   IndexCounter(1);
+  indicators.forEach(dot => dot.style.opacity = ".5");
+  indicators[slideIndex - 1].style.opacity = "1";
 });
+
+indicators.forEach(dot => {
+  dot.addEventListener('click', (e)=>{
+    const slideTo = +e.target.getAttribute('data-slide-to');
+    slideIndex = slideTo;
+    showSlides(slideIndex);
+    indicators.forEach(dot => dot.style.opacity = ".5");
+    indicators[slideIndex - 1].style.opacity = "1";
+
+
+  });
+});
+
+
+
+
+
+
+// const slides = document.querySelectorAll('.offer__slide'),
+//       next = document.querySelector('.offer__slider-next'),
+//       prev = document.querySelector('.offer__slider-prev');
+// let indexCounter = 1;
+// showSlides(indexCounter);
+
+// function showSlides(){
+//   if(indexCounter > slides.length){
+//     indexCounter = 1;
+//   } 
+//   if(indexCounter < 1) {
+//     indexCounter = slides.length;
+//   }
+  
+//   slides.forEach((item)=>{
+//     item.style.display = 'none';
+//   });
+//   slides[indexCounter - 1].style.display = 'block';
+// }
+
+// function sumIndex(n){
+//   showSlides(indexCounter += n);
+// }
+
+// next.addEventListener('click',()=>{
+//   sumIndex(1);
+// });
+// prev.addEventListener('click',()=>{
+//   sumIndex(-1);
+// });
 
 
 
