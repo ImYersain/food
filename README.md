@@ -14,3 +14,4 @@ just for practice (project  in progress)
 -async,await
 -db.js (json-server)
 -fetch(GET,POST)
+-slider with dots
