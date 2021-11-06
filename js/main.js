@@ -42,7 +42,7 @@
 const test = time => {
     return new Promise((resolve,reject) => {
         setTimeout(()=>{
-            resolve()
+            resolve();
         }, time);
     });
 };
