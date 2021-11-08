@@ -15,3 +15,8 @@ just for practice (project  in progress)
 -db.js (json-server)
 -fetch(GET,POST)
 -slider with dots
+-regular expressions
+-localStorage
+-calculator
+-ES6 modules
+-Webpack
