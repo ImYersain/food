@@ -20,3 +20,4 @@ just for practice (project  in progress)
 -calculator
 -ES6 modules
 -Webpack
+-core-js (polyfils library)
