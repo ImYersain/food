@@ -1,5 +1,10 @@
 # food project (JavaScript native)
 
+npm init
+npx json-server db.json
+npx webpack
+
+
 
 just for practice (project  in progress)
 -tabs
