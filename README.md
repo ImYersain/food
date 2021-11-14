@@ -1,12 +1,15 @@
-# food project (JavaScript native)
+# food project (just for practice, JavaScript native)
+
+<b>USAGE</b><br><br>
 
 npm init <br>
 npx json-server db.json <br>
+run to OpenServer <br>
 npx webpack <br>
 
 
 
-just for practice (project  in progress) <br>
+ <b>Technologies and work tools i used on this porj </b><br><br>
 -tabs<br>
 -modal<br>
 -timer<br>
