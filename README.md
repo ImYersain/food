@@ -7,9 +7,10 @@ npx json-server db.json <br>
 run to OpenServer <br>
 npx webpack <br>
 
-
+<br><br><br>
 
  <b>Technologies and work tools i used on this porj </b><br><br>
+ 
 -tabs<br>
 -modal<br>
 -timer<br>
